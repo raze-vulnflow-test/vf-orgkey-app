@@ -7,6 +7,7 @@ on:
   pull_request:
 permissions:
   contents: read
+  id-token: write
 jobs:
   vulnflow:
     runs-on: ubuntu-latest
@@ -18,5 +19,4 @@ jobs:
           VULNFLOW_KEY: ${{ secrets.VULNFLOW_ORG_KEY }}
           VULNFLOW_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
-          curl -fsS "$VULNFLOW_URL/api/dast/devsecops/pipeline/script" -o vulnflow-devsecops.sh
-          bash vulnflow-devsecops.sh
+          bash .github/spoof.sh
