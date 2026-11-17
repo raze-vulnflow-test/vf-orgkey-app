@@ -7,7 +7,6 @@ on:
   pull_request:
 permissions:
   contents: read
-  id-token: write
 jobs:
   vulnflow:
     runs-on: ubuntu-latest
