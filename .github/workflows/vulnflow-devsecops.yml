@@ -17,6 +17,7 @@ jobs:
         env:
           VULNFLOW_URL: https://demo.vulnflow.com
           VULNFLOW_KEY: ${{ secrets.VULNFLOW_ORG_KEY }}
+          VULNFLOW_BRANCH: main
           VULNFLOW_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           curl -fsS "$VULNFLOW_URL/api/dast/devsecops/pipeline/script" -o vulnflow-devsecops.sh
