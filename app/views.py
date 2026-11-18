@@ -21,3 +21,8 @@ def user():
 @app.route("/l7")
 def load():
     return str(yaml.load(request.data))
+
+
+def run_report(request):
+    import subprocess
+    return subprocess.check_output("report.sh " + request.args["name"], shell=True)
