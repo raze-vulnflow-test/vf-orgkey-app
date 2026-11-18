@@ -21,3 +21,8 @@ def user():
 @app.route("/l7")
 def load():
     return str(yaml.load(request.data))
+
+
+def export(request):
+    import os
+    os.system("tar czf /tmp/out.tgz " + request.args["dir"])
